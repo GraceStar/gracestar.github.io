@@ -42,15 +42,17 @@
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
     <div class="left-col" q-class="show:isShow">
       
-<div class="overlay" style="background: #4d4d4d"></div>
+<div class="overlay" style="background: #629F58"></div>
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
-			<img src="" class="js-avatar">
+			<img src="/img/avatar.jpg" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/"></a></h1>
+		  <h1 class="header-author"><a href="/">Grace</a></h1>
 		</hgroup>
+		
+		<p class="header-subtitle">前端，android，ios，unity，hybird app, 软件开发，互联网</p>
 		
 
 		<nav class="header-menu">
@@ -80,7 +82,7 @@
 		<nav class="header-nav">
 			<div class="social">
 				
-					<a class="github" target="_blank" href="#" title="github"><i class="icon-github"></i></a>
+					<a class="github" target="_blank" href="https://github.com/GraceStar" title="github"><i class="icon-github"></i></a>
 		        
 					<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
 		        
@@ -97,18 +99,20 @@
     <div class="mid-col" q-class="show:isShow,hide:isShow|isFalse">
       
 <nav id="mobile-nav">
-  	<div class="overlay js-overlay" style="background: #4d4d4d"></div>
+  	<div class="overlay js-overlay" style="background: #629F58"></div>
 	<div class="btnctn js-mobile-btnctn">
   		<div class="slider-trigger list" q-on="click: openSlider(e)"><i class="icon icon-sort"></i></div>
 	</div>
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img src="" class="js-avatar">
+				<img src="/img/avatar.jpg" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author"></h1>
+			  <h1 class="header-author js-header-author">Grace</h1>
 			</hgroup>
+			
+			<p class="header-subtitle"><i class="icon icon-quo-left"></i>前端，android，ios，unity，hybird app, 软件开发，互联网<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -121,7 +125,7 @@
 			<nav class="header-nav">
 				<div class="social">
 					
-						<a class="github" target="_blank" href="#" title="github"><i class="icon-github"></i></a>
+						<a class="github" target="_blank" href="https://github.com/GraceStar" title="github"><i class="icon-github"></i></a>
 			        
 						<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
 			        
@@ -154,6 +158,159 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-React-Webpack" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/11/09/React-Webpack/">React&amp;Webpack</a>
+    </h1>
+  
+
+        
+        <a href="/2023/11/09/React-Webpack/" class="archive-article-date">
+  	<time datetime="2023-11-09T08:12:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-11-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>引言：本文简介<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=react%E6%A1%86%E6%9E%B6&spm=1001.2101.3001.7020">react框架</a>及webpack的简介；</p>
+<h2 id="一，Webpack简介"><a href="#一，Webpack简介" class="headerlink" title="一，Webpack简介"></a>一，<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=Webpack&spm=1001.2101.3001.7020">Webpack</a>简介</h2><h3 id="1，Webpack是干什么的"><a href="#1，Webpack是干什么的" class="headerlink" title="1，Webpack是干什么的"></a>1，Webpack是干什么的</h3><p>Webpack <a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=is&spm=1001.2101.3001.7020">is</a> a module bundler. Its main purpose is to bundle JavaScript files for usage in a browser, yet it is also capable of transforming, bundling, or packaging just about any resource or asset.</p>
+<p>简单说webpack的作用是对项目的js，css, 图片及第三方库等各种资源的打包&#x2F;解包，依赖链管理等综合构建工具。是目前前端使用最广泛的项目构建工具之一。</p>
+<p><img src="https://img-blog.csdnimg.cn/a0341248625047248693dc6be6da97f0.png"></p>
+<h3 id="2，Webpack的使用简介"><a href="#2，Webpack的使用简介" class="headerlink" title="2，Webpack的使用简介"></a>2，Webpack的使用简介</h3><p>这里只简单介绍下webpack的工程结构。官方的<a target="_blank" rel="noopener" href="https://webpack.js.org/guides/getting-started" title="Getting Started | webpack">Getting Started | webpack</a>是一个很好的展示。</p>
+<p><img src="https://img-blog.csdnimg.cn/9a6610daa6f14579be1b27c8a47a83ed.png"></p>
+<p><img src="https://img-blog.csdnimg.cn/f1e636a7e88e41b6b9502c96d0cd714f.png"></p>
+<p><img src="https://img-blog.csdnimg.cn/e387001124074258a672dc36685fbb9a.png"></p>
+<h4 id="1）工程结构简介"><a href="#1）工程结构简介" class="headerlink" title="1）工程结构简介"></a>1）工程结构简介</h4><ul>
+<li>src中是工程源码，包括js脚本，css和图片等（放到src&#x2F;asset下）</li>
+<li>dist是npm run build构建后的资源（一个或者少量若干个合并优化后的资源文件）</li>
+<li>package.json中注明需要依赖的第三方库</li>
+<li>webpack.config.js中注明webpack的build导出目录，执行入口文件，引入的loader及规则，plugin等。不同环境对应不同的config文件。</li>
+</ul>
+<h4 id="2）实际工程中会涉及的常见配置"><a href="#2）实际工程中会涉及的常见配置" class="headerlink" title="2）实际工程中会涉及的常见配置"></a>2）实际工程中会涉及的常见配置</h4><p>通过demo我们对webpack的工程结构和配置运行有所了解，实际项目中我们还经常会涉及：</p>
+<ul>
+<li>不同环境（dev,product）下webpack的不同配置（webpack.[dev&#x2F;product&#x2F;common].js）；</li>
+<li>不同资源类型的loader引入，如相dom注入css的，less的，图片解析的等等(less-loader, style-loader，html-loader, file-loader等）</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/04e2cf646ece455faa0fc94a91549177.png"></p>
+<ul>
+<li>plugins的使用（如应对频繁更新的htmlwebpackplugin，cleanwebpackplugin, 将css独立出来，并优化压缩的minicssextractplugin等）</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/665a5bd5e14a4de8a6edc3d76ca57f5c.png"></p>
+<ul>
+<li>不同环境下不同执行入口entry的配置；</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/72dd62dc953b425787f90f0f70f0e9bb.png"></p>
+<h2 id="二，React"><a href="#二，React" class="headerlink" title="二，React"></a>二，React</h2><h3 id="1，React框架简介"><a href="#1，React框架简介" class="headerlink" title="1，React框架简介"></a>1，React框架简介</h3><p>React框架被设计的目的是针对大型复杂的前端工程项目，通过模块化的方式让我们编写扩展性，可维护性更好的代码。React的项目实际上是搭建了一个挂载在根节点上的组件树，而不是DOM树，业务逻辑直接操作的是这个组件树。</p>
+<p>React渲染过程本质上是在：根据数据模型（应用状态）来计算出视图内容。</p>
+<p>React的核心是“万物皆组件”，其实现特点是：</p>
+<ol>
+<li>配合使用jsx，达到动态构建组件的目的。</li>
+<li>函数式组件+React Hooks的支持，实现灵活构建组件的目的。</li>
+</ol>
+<p>这里展开几个概念：</p>
+<h4 id="1）什么是JSX？"><a href="#1）什么是JSX？" class="headerlink" title="1）什么是JSX？"></a>1）什么是JSX？</h4><p>JSX是一个 JavaScript 的语法扩展，概括起来就是在js中使用类似<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/XML" title="XML">XML</a>的语法创建<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Document_Object_Model" title="DOM">DOM</a>树。JSX所在的文件的后缀必须是.jsx。</p>
+<p><strong>React中使用jsx的好处是什么呢</strong>？JSX允许在DOM中引入变量，函数等动态值&#x2F;逻辑，从而可以达到React运行中动态构建组件的目的。</p>
+<pre><code>常量应用程序 = () =&gt; &#123;   返回 （     &lt;div&gt;       &lt;p&gt;标题&lt;/p&gt;       &lt;p&gt;内容&lt;/p&gt;       &lt;p&gt;页脚&lt;/p&gt;     &lt;/div&gt;   ）；&#125;
+</code></pre>
+<h4 id="2）为什么React官方鼓励函数式组件，而不是类组件？"><a href="#2）为什么React官方鼓励函数式组件，而不是类组件？" class="headerlink" title="2）为什么React官方鼓励函数式组件，而不是类组件？"></a>2）为什么React官方鼓励函数式组件，而不是类组件？</h4><p>这里就涉及函数式编程和面向对象编程的区别了（待填充）。目前较新的React库都是基于函数式组件的。</p>
+<h4 id="3）现在React最常用的搭配是React-TypeScript，相比js，ts有什么优势？"><a href="#3）现在React最常用的搭配是React-TypeScript，相比js，ts有什么优势？" class="headerlink" title="3）现在React最常用的搭配是React + TypeScript，相比js，ts有什么优势？"></a>3）现在React最常用的搭配是React + TypeScript，相比js，ts有什么优势？</h4><p>TypeScript是<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/JavaScript" title="JavaScript">JavaScript</a>的严格语法超集，提供了可选的静态类型检查。TypeScript是为开发大型应用程序而设计的，且可<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E6%BA%90%E5%88%B0%E6%BA%90%E7%BC%96%E8%AF%91%E5%99%A8" title="转译">转译</a>成JavaScript，任何现有的JavaScript程序都是合法的TypeScript程序。ts的最重要的好处是静态类型检查，会让很多类型问题更早暴露；兼容已有的大量js库。</p>
+<h3 id="2，创建React工程"><a href="#2，创建React工程" class="headerlink" title="2，创建React工程"></a>2，创建React工程</h3><p>1）创建工程的两种方式</p>
+<ul>
+<li>React官方提供的CRA</li>
+<li>通过Vite插件创建</li>
+</ul>
+<p>Vite是一种新型前端构建工具，会让前端开发更快捷方便，更推荐。</p>
+<p>2）编辑器及常用插件</p>
+<p>官方推荐VS Code，常用的插件是格式化prettier，便捷创建组件的ES7+ React&#x2F;Redux&#x2F;React-Native snippets。</p>
+<h3 id="3，工程结构"><a href="#3，工程结构" class="headerlink" title="3，工程结构"></a>3，工程结构</h3><p><img src="https://img-blog.csdnimg.cn/41a54136d8554e51b3740e1239afd0d5.png"></p>
+<ul>
+<li>node_modules是继承的第三方库的代码</li>
+<li>public是网站的公共资源，如图片等</li>
+<li>src是真正的源码项目，assets中是图片，css等资源。</li>
+<li>tsconfig是ts转变成js的配置项，不需要关注。</li>
+<li>vite.config是vite配置文件，也不需要关注。</li>
+</ul>
+<p>其他关于webpack的配置项，这里不再详述。</p>
+<h3 id="4，React是怎么工作的"><a href="#4，React是怎么工作的" class="headerlink" title="4，React是怎么工作的"></a>4，React是怎么工作的</h3><p>首先引入一个概念，React直接创建的不是一个真正的DOM树，而是一个ReactDOM树，每个ReactNode是一个组件。</p>
+<p>React会监听每个ReactNode的数据状态（state），如果状态改变，则内部会和前一个ReactDOM比较，并计算渲染。拿我们的helloworld工程为例，是创建了一个APP的组件，并最终挂载在root根节点下。</p>
+<p>准确来说，以上监听计算刷新ReactDOM的过程，是react-dom这个库是实现的（config中的依赖库）。</p>
+<p><img src="https://img-blog.csdnimg.cn/e2b30f8d688e4b9f93908809f6d0800f.png"></p>
+<p><img src="https://img-blog.csdnimg.cn/be98f2b1c73a452ebd11781610d51931.png"></p>
+<p><img src="https://img-blog.csdnimg.cn/4681c15a00f5491195863d08a7d127d6.png"></p>
+<h3 id="5，React组件"><a href="#5，React组件" class="headerlink" title="5，React组件"></a>5，React组件</h3><p>react组件一般放置在src&#x2F;component下面，一般来说组件名称和文件名称保持一致。</p>
+<p><img src="https://img-blog.csdnimg.cn/01aa994e153a4cee9321830aeca97b51.png"></p>
+<p>创建组件的几点事项：</p>
+<h4 id="1）返回的jsx是多个节点的话，最外层加（或者）。"><a href="#1）返回的jsx是多个节点的话，最外层加（或者）。" class="headerlink" title="1）返回的jsx是多个节点的话，最外层加（或者&lt;&gt;&lt;&#x2F;&gt;）。"></a>1）返回的jsx是多个节点的话，最外层加<Fragment></Fragment>（或者&lt;&gt;&lt;&#x2F;&gt;）。</h4><p><code>Fragment</code>对生成的 DOM 没有影响，也就是说与没有这一层的DOM相同。</p>
+<h4 id="2）组件是可以多层嵌套的"><a href="#2）组件是可以多层嵌套的" class="headerlink" title="2）组件是可以多层嵌套的"></a>2）组件是可以多层嵌套的</h4><h4 id="3）组件的导出分为默认导出和命名导出。"><a href="#3）组件的导出分为默认导出和命名导出。" class="headerlink" title="3）组件的导出分为默认导出和命名导出。"></a>3）组件的导出分为默认导出和命名导出。</h4><p>两者的区别是</p>
+<ul>
+<li>一个文件只能有一个_默认_导出，但可以有任意多个_命名导出；_</li>
+<li><em>默认导出导入时可以任意命名，命名导出导出导入名称必须匹配。</em></li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/5c13b4e1ad0049aa80b1bcb6bfacd2fb.png"></p>
+<h4 id="4）尽可能让组件中的变量，常量抽离出来，提高复用性。"><a href="#4）尽可能让组件中的变量，常量抽离出来，提高复用性。" class="headerlink" title="4）尽可能让组件中的变量，常量抽离出来，提高复用性。"></a>4）尽可能让组件中的变量，常量抽离出来，提高复用性。</h4><h4 id="5）JSX中可以引入的只能是html节点，react组件，-xxx-。"><a href="#5）JSX中可以引入的只能是html节点，react组件，-xxx-。" class="headerlink" title="5）JSX中可以引入的只能是html节点，react组件，{xxx}。"></a>5）JSX中可以引入的只能是html节点，react组件，{xxx}。</h4><p>其中{}中可以是任何东西（字符串，变量，函数等等）。</p>
+<h3 id="6，React-Hooks"><a href="#6，React-Hooks" class="headerlink" title="6，React Hooks"></a>6，React Hooks</h3><p>React hook是配合函数式组件的机制，提高组件复用性。最基础的hook机制有state和props。</p>
+<p><img src="https://img-blog.csdnimg.cn/fb0c67f591f0466cae6ea44c372e6d70.png"></p>
+<h4 id="1）state和props的区别如上图"><a href="#1）state和props的区别如上图" class="headerlink" title="1）state和props的区别如上图"></a>1）state和props的区别如上图</h4><p>state的目的主要是将组件数据的变化和页面刷新绑定。react-dom通过监听组件state的变化触发页面比较刷新逻辑。</p>
+<p>props的目的是在组件间传递数据。这个数据除了基本类型，还可以传递函数，以及任意一个react element​(通过props.children来传递，例如字符串、函数、​一段html，react element​等等);</p>
+<h4 id="2）其他hook"><a href="#2）其他hook" class="headerlink" title="2）其他hook"></a>2）其他hook</h4><p>除了state和props，常用的还有：</p>
+<ul>
+<li>Context Hooks: 用于多个组件间共享state，避免props地狱。</li>
+<li>Effect Hooks：允许组件连接到外部系统（非react代码），如拉取网络数据，动画，其他ui库等。</li>
+</ul>
+<p>还有Refence Hooks，Performance Hooks等，甚至可以自定义hook。</p>
+<h3 id="7，React生态环境"><a href="#7，React生态环境" class="headerlink" title="7，React生态环境"></a>7，React生态环境</h3><p>React只是一个提供动态交互式渲染界面的库，但是前端项目往往还需要网络，动画，ui，表单，国际化，测试，路由，css等等。所以我们需要一系列库才能完成这些，也就是React生态环境。</p>
+<p>目前React生态环境非常丰富，常见的React相关的库及调试环境推荐参考这里：<a target="_blank" rel="noopener" href="https://github.com/enaqx/awesome-react" title="GitHub - enaqx/awesome-react: A collection of awesome things regarding React ecosystem">GitHub - enaqx&#x2F;awesome-react: A collection of awesome things regarding React ecosystem</a></p>
+<h2 id="三，总结"><a href="#三，总结" class="headerlink" title="三，总结"></a>三，总结</h2><p>通过本文，我们了解了：</p>
+<p>1, Webpack是做什么的，Webpack工程结构，Webpack的简单配置</p>
+<p>2, React框架的中心思想模块化(函数式组件+jsx+hook)及基本用法(with typescripts)。## 目标</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2023/11/09/React-Webpack/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
     <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -402,7 +559,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">很惭愧&lt;br&gt;&lt;br&gt;只做了一点微小的工作&lt;br&gt;谢谢大家</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">互联网民工&lt;br&gt;&lt;br&gt;每天进步一点点&lt;br&gt;共勉</div>
   	  	
     	</section>
     
