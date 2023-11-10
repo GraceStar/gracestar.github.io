@@ -165,6 +165,280 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-快速了解语言系列-Java" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/01/10/%E5%BF%AB%E9%80%9F%E4%BA%86%E8%A7%A3%E8%AF%AD%E8%A8%80%E7%B3%BB%E5%88%97-Java/">快速学习语言系列--Java</a>
+    </h1>
+  
+
+        
+        <a href="/2023/01/10/%E5%BF%AB%E9%80%9F%E4%BA%86%E8%A7%A3%E8%AF%AD%E8%A8%80%E7%B3%BB%E5%88%97-Java/" class="archive-article-date">
+  	<time datetime="2023-01-10T15:10:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>引言：本文帮助你快速建立对Java语言的认识和基本使用要点。</p>
+</blockquote>
+<h1 id="一，Java简介"><a href="#一，Java简介" class="headerlink" title="一，Java简介"></a>一，Java简介</h1><h2 id="1-Java历史"><a href="#1-Java历史" class="headerlink" title="1. Java历史"></a>1. Java历史</h2><p>Java是一门历史悠久，应用非常广泛的语言。1995年诞生，广泛应用于企业级web应用开发，andorid开发，及后台开发中。</p>
+<h2 id="2-Java的特点"><a href="#2-Java的特点" class="headerlink" title="2. Java的特点"></a>2. Java的特点</h2><p>Sun微系统对Java语言的解释是：“Java编程语言是个简单、<strong>面向对象</strong>、分布式、解释性、健壮、安全、与系统无关、可移植、高性能、多线程和动态的语言”。Java是一种强类型，编译型高级语言。</p>
+<p>说起来Java，大部分人的第一印象是“一次编写，到处运行”的<strong>跨平台特性</strong>。它首先将源代码编译成字节码，再依赖各种不同平台上的虚拟机来解释执行字节码，从而具有“一次编写，到处运行”的跨平台特性。</p>
+<p>除此以外，Java编程语言的风格十分接近C++语言。继承了C++语言面向对象技术的核心，舍弃了容易引起错误的指针，以引用取代；移除了C++中的运算符重载和多重继承特性，用接口取代；增加<strong>垃圾回收器</strong>功能。在Java SE 1.5版本中引入了<strong>泛型编程</strong>、类型安全的枚举、不定长参数和自动装&#x2F;拆箱特性。</p>
+<p>另，Java拥有最广泛的开源社区支持，各种高质量组件随时可用。</p>
+<p>Java语言常年霸占着三大市场：</p>
+<ul>
+<li>互联网和企业应用，这是Java EE的长期优势和市场地位</li>
+<li>大数据平台，主要有Hadoop、Spark、Flink等，他们都是Java或Scala（一种运行于JVM的编程语言）开发的；</li>
+<li>Android移动平台。</li>
+</ul>
+<h2 id="3-Java开发基本认知"><a href="#3-Java开发基本认知" class="headerlink" title="3. Java开发基本认知"></a>3. Java开发基本认知</h2><h3 id="1）Java版本"><a href="#1）Java版本" class="headerlink" title="1）Java版本"></a>1）Java版本</h3><p>Java官方提供三个大版本，Java EE&#x2F;SE&#x2F;ME。</p>
+<p>简单来说，Java SE就是标准版，包含标准的JVM和标准库，而Java EE是企业版，它只是在Java SE的基础上加上了大量的API和库，以便方便开发Web应用、数据库、消息服务等，Java EE的应用使用的虚拟机和Java SE完全相同。<br>Java ME就和Java SE不同，它是一个针对嵌入式设备的“瘦身版”，Java SE的标准库无法在Java ME上使用，Java ME的虚拟机也是“瘦身版”。<br>小版本列表如下（以SE为例）：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">时间	版本</span><br><span class="line">1995	1.0</span><br><span class="line">1998	1.2</span><br><span class="line">2000	1.3</span><br><span class="line">2002	1.4</span><br><span class="line">2004	1.5 / 5.0</span><br><span class="line">2005	1.6 / 6.0</span><br><span class="line">2011	1.7 / 7.0</span><br><span class="line">2014	1.8 / 8.0</span><br><span class="line">2017/9	1.9 / 9.0</span><br><span class="line">2018/3	10</span><br><span class="line">2018/9	11</span><br><span class="line">2019/3	12</span><br><span class="line">2019/9	13</span><br><span class="line">2020/3	14</span><br><span class="line">2020/9	15</span><br><span class="line">2021/3	16</span><br><span class="line">2021/9	17</span><br><span class="line">2022/3	18</span><br><span class="line">2022/9	19</span><br><span class="line">2023/3	20</span><br><span class="line">2023/9	21</span><br></pre></td></tr></table></figure>
+<h3 id="2）Java运行机制"><a href="#2）Java运行机制" class="headerlink" title="2）Java运行机制"></a>2）Java运行机制</h3><h4 id="2-1-JDK和JRE"><a href="#2-1-JDK和JRE" class="headerlink" title="2.1) JDK和JRE"></a>2.1) JDK和JRE</h4><p>Java文件被编译成Java中间字节码（.class）之后，运行在各个平台的JRE(java runtime)上。</p>
+<p>这里面涉及两个概念：JRE和JDK</p>
+<ul>
+<li>JDK：Java Development Kit</li>
+<li>JRE：Java Runtime Environment</li>
+</ul>
+<p>简单地说，JRE就是运行Java字节码的虚拟机。但是，如果只有Java源码，要编译成Java字节码，就需要JDK，因为JDK除了包含JRE，还提供了编译器、调试器等开发工具。</p>
+<p>二者关系如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"> ┌─    ┌──────────────────────────────────┐</span><br><span class="line"> │     │     Compiler, debugger, etc.     │</span><br><span class="line"> │     └──────────────────────────────────┘</span><br><span class="line">JDK ┌─ ┌──────────────────────────────────┐</span><br><span class="line"> │  │  │                                  │</span><br><span class="line"> │ JRE │      JVM + Runtime Library       │</span><br><span class="line"> │  │  │                                  │</span><br><span class="line"> └─ └─ └──────────────────────────────────┘</span><br><span class="line">       ┌───────┐┌───────┐┌───────┐┌───────┐</span><br><span class="line">       │Windows││ Linux ││ macOS ││others │</span><br><span class="line">       └───────┘└───────┘└───────┘└───────┘</span><br></pre></td></tr></table></figure>
+<p>我们运行Java前，需要去Oracal官网下载最新稳定版本JDK，安装及设置环境变量JAVA_HOME。</p>
+<p>如果想了解具体JDK的内容，可以去官网下载对应版本的OpenJDK，即JDK的开放源码。</p>
+<h4 id="2-2-Java命令行和IDE"><a href="#2-2-Java命令行和IDE" class="headerlink" title="2.2) Java命令行和IDE"></a>2.2) Java命令行和IDE</h4><p>常见命令：</p>
+<ul>
+<li>java：这个可执行程序其实就是JVM，运行Java程序，就是启动JVM，然后让JVM执行指定的编译后的代码；</li>
+<li>javac：这是Java的编译器，它用于把Java源码文件（以.java后缀结尾）编译为Java字节码文件（以.class后缀结尾）；</li>
+<li>jar：用于把一组.class文件打包成一个.jar文件，便于发布；</li>
+<li>javadoc：用于从Java源码中自动提取注释并生成文档；</li>
+<li>jdb：Java调试器，用于开发阶段的运行调试。</li>
+</ul>
+<p>常见IDE：<br>Eclipse，IntelliJ。<br>如果是Android开发，那就是android studio。</p>
+<h1 id="二，Java的基本用法"><a href="#二，Java的基本用法" class="headerlink" title="二，Java的基本用法"></a>二，Java的基本用法</h1><h2 id="1-数据类型"><a href="#1-数据类型" class="headerlink" title="1. 数据类型"></a>1. 数据类型</h2><h3 id="1）基本类型"><a href="#1）基本类型" class="headerlink" title="1）基本类型"></a>1）基本类型</h3><ul>
+<li>整数类型：byte(1字节)，short(2)，int(4)，long(8)</li>
+<li>浮点数类型：float(4)，double(8)</li>
+<li>字符类型：char(2)</li>
+<li>布尔类型：boolean(1)<br>var关键字：编译器会根据赋值语句自动推断出变量类型。</li>
+</ul>
+<h3 id="2）引用类型"><a href="#2）引用类型" class="headerlink" title="2）引用类型"></a>2）引用类型</h3><p>指向String，Array等任意对象的变量，都是引用类型。引用类型的变量相当于指针。</p>
+<h2 id="2-类"><a href="#2-类" class="headerlink" title="2. 类"></a>2. 类</h2><p>注意区分2个概念：类和实例。这里不再展开。</p>
+<h3 id="1）作用域"><a href="#1）作用域" class="headerlink" title="1）作用域"></a>1）作用域</h3><p>包package-&gt;类class-&gt;function+field;<br>三者的包含关系如上，作用域的划分也是如此。当我们需要访问某个别的package下的class的时候，可以直接使用完整的package.class的方式，或者import package.class的方式。</p>
+<p>其中class，function，field都可以用public, protected, private修饰符界定访问作用域。</p>
+<h3 id="2）方法及构造方法"><a href="#2）方法及构造方法" class="headerlink" title="2）方法及构造方法"></a>2）方法及构造方法</h3><h4 id="2-1）入口方法"><a href="#2-1）入口方法" class="headerlink" title="2.1）入口方法"></a>2.1）入口方法</h4><p>可执行程序默认的入口方法就是这个全局唯一的static void main函数。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">public class Main &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="2-2）构造方法"><a href="#2-2）构造方法" class="headerlink" title="2.2）构造方法"></a>2.2）构造方法</h4><p>构造方法存在的意义是用来方便一次性初始化类中多个内部字段的。一般来说内部字段是private，构造函数和对外接口函数是public的。初始化的执行顺序是先执行字段的赋值初始化（如果没有，编译器会赋默认初始值0，false,null等），再执行构造函数。</p>
+<p>我们可以显式的创建，但如果我们不创建，编译器也会给每个类一个不带参数的默认构造函数（内部逻辑为空）；一旦我们显式创建，编译器就不会默认创建了。</p>
+<p>构造方法可以有一组重载的，只是参数不同；如果是继承子类，构造函数内部逻辑记得优先调用父类的某个构造函数super()&#x2F;super(xxx);</p>
+<h3 id="3）方法重载overload"><a href="#3）方法重载overload" class="headerlink" title="3）方法重载overload"></a>3）方法重载overload</h3><p>重载就是一组方法的名称一样，签名不同（参数个数和类型）；一般来说重载方法返回类型是相同的。</p>
+<h3 id="4）继承和多态"><a href="#4）继承和多态" class="headerlink" title="4）继承和多态"></a>4）继承和多态</h3><h4 id="4-1）继承"><a href="#4-1）继承" class="headerlink" title="4.1）继承"></a>4.1）继承</h4><p>引入父类和子类的概念，对应关键字extends。</p>
+<ul>
+<li>一个子类只能继承一个父类，但是可以形成继承链，所有类最终继承自Object。</li>
+<li>子类可以直接访问父类所有protected和public的字段和方法；</li>
+<li>子类可以选择性override覆写父类protected和public的方法；</li>
+<li>final关键字：一个final类不能被继承；一个final方法不能被override；一个final字段一旦初始化不能被修改。</li>
+<li>父类指针可以指向子类对象</li>
+</ul>
+<h4 id="4-2）多态"><a href="#4-2）多态" class="headerlink" title="4.2）多态"></a>4.2）多态</h4><p>因为子类可以覆写父类方法，且父类指针可以指向子类对象。所以当我们调用一个父类指针指向的类中的某个方法时，我们并不知道，他究竟指向的是谁，会走到哪个方法里。（可以通过instanceof确认）</p>
+<p>多态的特性就是，运行期才能动态决定调用的子类方法。多态是java面向对象设计中的一大特点，他的好处是增强了对象的可扩展性和使用灵活性。</p>
+<h3 id="5）抽象类和接口"><a href="#5）抽象类和接口" class="headerlink" title="5）抽象类和接口"></a>5）抽象类和接口</h3><h4 id="5-1）抽象类和抽象方法"><a href="#5-1）抽象类和抽象方法" class="headerlink" title="5.1）抽象类和抽象方法"></a>5.1）抽象类和抽象方法</h4><p>对应关键字abstract。抽象方法是不需要写实现的；抽象类是无法实例化的。</p>
+<ul>
+<li>只要类中有一个抽象方法，这个类只能是抽象类</li>
+<li>抽象类中也可以有正常的方法和字段</li>
+<li>抽象类存在的意义就是为了给子类定义规范和公共逻辑。</li>
+</ul>
+<h4 id="5-2）接口"><a href="#5-2）接口" class="headerlink" title="5.2）接口"></a>5.2）接口</h4><p>接口interface是更纯粹的抽象类，无法实例化，所有方法都默认是抽象方法。</p>
+<ul>
+<li>一个子类只能继承一个父类，但是可以实现implements多个接口。</li>
+<li>接口存在的意义就是给子类定义规范</li>
+<li>接口中的字段默认都是public static final的。</li>
+</ul>
+<p>但是注意，java8中引入了一个特例：接口中的default方法。default方法的实现在接口中，而不是实现类中。default方法的引入是为了解决已发布的版本中，给接口添加新方法而不影响已有实现的问题。</p>
+<h3 id="6）静态字段和方法"><a href="#6）静态字段和方法" class="headerlink" title="6）静态字段和方法"></a>6）静态字段和方法</h3><p>类中的静态static字段和方法，说明这个字段和方法属于类，而不是实例。所有该类的实例共享同一个，调用方式是类名.方法名&#x2F;字段名。</p>
+<h3 id="7）内部类"><a href="#7）内部类" class="headerlink" title="7）内部类"></a>7）内部类</h3><p>Java的内部类可分为Inner Class、Anonymous Class和Static Nested Class三种：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">//Inner Class</span><br><span class="line">public class Main &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        Outer outer = new Outer(&quot;Nested&quot;); // 实例化一个Outer</span><br><span class="line">        Outer.Inner inner = outer.new Inner(); // 实例化一个Inner</span><br><span class="line">        inner.hello();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Outer &#123;</span><br><span class="line">    private String name;</span><br><span class="line"></span><br><span class="line">    Outer(String name) &#123;</span><br><span class="line">        this.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    class Inner &#123;</span><br><span class="line">        void hello() &#123;</span><br><span class="line">            System.out.println(&quot;Hello, &quot; + Outer.this.name);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">//Anonymous Class</span><br><span class="line">class Outer &#123;</span><br><span class="line">    private String name;</span><br><span class="line"></span><br><span class="line">    Outer(String name) &#123;</span><br><span class="line">        this.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    void asyncHello() &#123;</span><br><span class="line">        Runnable r = new Runnable() &#123;</span><br><span class="line">            @Override</span><br><span class="line">            public void run() &#123;</span><br><span class="line">                System.out.println(&quot;Hello, &quot; + Outer.this.name);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">        new Thread(r).start();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">// Static Nested Class</span><br><span class="line">public class Main &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        Outer.StaticNested sn = new Outer.StaticNested();</span><br><span class="line">        sn.hello();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Outer &#123;</span><br><span class="line">    private static String NAME = &quot;OUTER&quot;;</span><br><span class="line"></span><br><span class="line">    private String name;</span><br><span class="line"></span><br><span class="line">    Outer(String name) &#123;</span><br><span class="line">        this.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    static class StaticNested &#123;</span><br><span class="line">        void hello() &#123;</span><br><span class="line">            System.out.println(&quot;Hello, &quot; + Outer.NAME);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Inner Class和Anonymous Class本质上是相同的，都必须依附于Outer Class的实例，即隐含地持有Outer.this实例，并拥有Outer Class的private访问权限；</li>
+<li>Static Nested Class是独立类，但拥有Outer Class的private访问权限。</li>
+</ul>
+<h2 id="3-Java核心类"><a href="#3-Java核心类" class="headerlink" title="3. Java核心类"></a>3. Java核心类</h2><h3 id="1）String"><a href="#1）String" class="headerlink" title="1）String"></a>1）String</h3><p>String是一个引用类型，他本身也是一个类，可以用”…”表示一个字符串；多行字符串用”””…”””。</p>
+<ul>
+<li>Java字符串String是不可变对象；</li>
+<li>字符串操作不改变原字符串内容，而是返回新字符串；</li>
+<li>常用的字符串操作：分割split拼接join、比较equal、替换replace、大小写转换等；</li>
+</ul>
+<p>String相关类型转换：</p>
+<ul>
+<li>其他任意基本&#x2F;引用类型转成string(String.valueOf(xxx)，new String(char[]));</li>
+<li>string转成其他类型(Integer.parseInt,Boolean.parseBoolean，toCharArray())</li>
+</ul>
+<p>其他String相关常用核心类StringBuilder和StringJoiner。</p>
+<h3 id="2）AutoBox-UnBoxing"><a href="#2）AutoBox-UnBoxing" class="headerlink" title="2）AutoBox&#x2F;UnBoxing"></a>2）AutoBox&#x2F;UnBoxing</h3><p>Java为每个基本类型都提供了一个包装类型，这么做的目的是为了提供大量的实用方法。<br>为了方便使用，java1.5之后提供了自动装箱和拆箱（编译器完成）。自动装箱和拆箱的的好处很明显，但是坏处是比较影响执行效率。</p>
+<ul>
+<li>所有的包装类型都是不变类，一旦创建就不能改变</li>
+<li>包装类型的比较必须使用equals()；</li>
+<li>包装类型提供的常见方法：进制转换，类型转换，有符号数转成无符号数（java中没有无符号基本类型，但是和c++交互的时候需要转成无符号数）。</li>
+</ul>
+<h3 id="3）JavaBean"><a href="#3）JavaBean" class="headerlink" title="3）JavaBean"></a>3）JavaBean</h3><p>类似JavaBean定义属性的思想很多语言都有，比如c#的Property，通过accessors获取。</p>
+<ul>
+<li>JavaBean是一种符合命名规范的class，它通过getter和setter来定义属性；</li>
+<li>可以利用IDE快速生成getter和setter；</li>
+<li>使用Introspector.getBeanInfo()可以获取属性列表。</li>
+</ul>
+<h3 id="4）enum"><a href="#4）enum" class="headerlink" title="4）enum"></a>4）enum</h3><p>enum也是一种类，用于枚举常量。enum的特别之处在于：</p>
+<ul>
+<li>直接用&#x3D;&#x3D;比较，因为enum类型的每个常量在JVM中只有一个唯一实例。</li>
+<li>enum实例只能直接xx.xx赋值定义，不能new</li>
+<li>enum跟普通类一样可以用自己的变量、方法和构造函数，构造函数只能使用 private 访问修饰符，所以外部无法调用。</li>
+</ul>
+<h2 id="4-异常"><a href="#4-异常" class="headerlink" title="4. 异常"></a>4. 异常</h2><h3 id="1）异常的分类"><a href="#1）异常的分类" class="headerlink" title="1）异常的分类"></a>1）异常的分类</h3><p>所有异常和错误类型都是Throwable类的子类，Throwable 类是层次结构的基类。其中一个分支以Exception为首。此类用于用户程序应捕获的异常情况。NullPointerException 就是此类异常的一个示例。另一个分支，Error由 Java 运行时系统（JVM）用来指示与运行时环境本身（JRE）有关的错误。StackOverflowError 就是此类错误的一个示例。<br><img src="/../img/16996080716412.jpg"></p>
+<p>Exceptions又分为用户自定义异常和内置异常，内置异常里又分为检查和未检查异常。</p>
+<ul>
+<li>检查异常：检查异常称为编译时异常，因为这些异常由编译器在编译时检查。</li>
+<li>未检查异常：未检查异常与已检查异常相反。编译器在编译时不会检查这些异常。简单来说，如果一个程序抛出了一个未经检查的异常，即使我们没有处理或声明它，程序也不会给出编译错误。</li>
+</ul>
+<p><img src="/../img/16996082640610.jpg"></p>
+<h3 id="2）JVM如何处理异常"><a href="#2）JVM如何处理异常" class="headerlink" title="2）JVM如何处理异常"></a>2）JVM如何处理异常</h3><p>简单来说，就是当方法内部发生异常的时候，该方法就会创建一个包含现场信息的异常对象，并传递给JVM。这一步叫抛出异常。<br>JVM收到异常对象后，开始在当前调用堆栈call stack中先找到发生异常的函数，然后按照调用顺序，反向搜查可以处理该异常的exception handler。<br>如果找到就交给exception handler处理，如果没有，就交给默认异常处理程序，该处理程序是运行时系统的一部分。该处理程序按以下格式打印异常信息并异常终止程序。<br><img src="/../img/16996089636600.jpg"></p>
+<h3 id="3）代码中捕获异常的原则"><a href="#3）代码中捕获异常的原则" class="headerlink" title="3）代码中捕获异常的原则"></a>3）代码中捕获异常的原则</h3><p>Error是无需捕获的，说明JVM出了问题，就应该fail fast，避免更多连锁问题。<br>Exception的捕获原则也是一样，如果是一些在设计中被认为不应该出现的，后续会产生不可预估连锁影响的异常，我们就应该遵循fail fast原则；如果异常是我们程序逻辑考虑的一部分，那就捕获它，并处理，保证它不影响主流程。</p>
+<p>但是最忌讳的是为了规避编译器报错提醒，不加分别的捕获了但是不做处理。</p>
+<h2 id="5-反射"><a href="#5-反射" class="headerlink" title="5. 反射"></a>5. 反射</h2><h3 id="1-反射是什么？"><a href="#1-反射是什么？" class="headerlink" title="1) 反射是什么？"></a>1) 反射是什么？</h3><p>首先反射是Java这个语言特有的一种特性。它允许运行中的 Java 程序获取自身的信息，并且可以操作类或对象的内部属性。<br>简而言之，通过反射，我们可以在运行时获得程序或程序集中每一个类型的成员和成员的信息。程序中一般的对象的类型都是在编译期就确定下来的，而 Java 反射机制可以动态地创建对象并调用其属性，这样的对象的类型在编译期是未知的。所以我们可以通过反射机制直接创建对象，即使这个对象的类型在编译期是未知的。</p>
+<p>反射是RTTI(Run-Time Type Identification)的一种体现，还有一种体现是多态。RTTI是说JVM 在运行时才动态加载类或调用方法&#x2F;访问属性，它不需要事先（编译期）知道运行对象是谁。</p>
+<p>Java 反射主要提供以下功能：</p>
+<ul>
+<li>在运行时判断任意一个对象所属的类；</li>
+<li>在运行时构造任意一个类的对象；</li>
+<li>在运行时判断任意一个类所具有的成员变量和方法（通过反射甚至可以调用private方法）；</li>
+<li>在运行时调用任意一个对象的方法</li>
+</ul>
+<p>重点：是运行时而不是编译时</p>
+<h3 id="2-反射被设计用来解决什么场景？"><a href="#2-反射被设计用来解决什么场景？" class="headerlink" title="2) 反射被设计用来解决什么场景？"></a>2) 反射被设计用来解决什么场景？</h3><p>业务开发中反射使用不多，框架及工具开发中会用到多一些。</p>
+<ul>
+<li>使用 IDE(如 Eclipse，IDEA)时，当我们输入一个对象或类并想调用它的属性或方法时，一按点号，编译器就会自动列出它的属性或方法。这个就是用反射实现的。</li>
+<li>开发通用框架时，很多框架（比如 Spring）都是配置化的（比如通过 XML 文件配置 Bean），为了保证框架的通用性，它们可能需要根据配置文件加载不同的对象或类，调用不同的方法，这个时候就必须用到反射，运行时动态加载需要加载的对象。</li>
+</ul>
+<h3 id="3-反射应慎用"><a href="#3-反射应慎用" class="headerlink" title="3) 反射应慎用"></a>3) 反射应慎用</h3><p>反射很强大，但不应该乱用。如果可以在不使用反射的情况下执行操作，那么最好避免使用它。通过反射访问代码时应牢记以下问题。</p>
+<ul>
+<li>性能开销：由于反射涉及动态解析的类型，因此无法执行某些 Java 虚拟机优化。因此，反射操作的性能比非反射操作慢，因此应避免在性能敏感的应用程序中频繁调用的代码段中使用反射操作。</li>
+<li>安全限制：反射需要运行时权限，在安全管理器下运行时可能不存在该权限。对于必须在受限安全上下文（例如 Applet）中运行的代码，这是一个重要的考虑因素。</li>
+<li>内部结构暴露：由于反射允许代码执行在非反射代码中非法的操作（例如访问private字段和方法），因此使用反射可能会导致意外的副作用，这可能会导致代码功能失调并可能破坏可移植性。</li>
+</ul>
+<h3 id="4-反射的用法？"><a href="#4-反射的用法？" class="headerlink" title="4) 反射的用法？"></a>4) 反射的用法？</h3><p> 反射方法都在java.lang.relfect包中。具体使用中建议去查官方手册。这里仅简单列举：</p>
+<ul>
+<li>获取Class：Class.forName(str)，int.class，Integer.TYPE，str.getClass()</li>
+<li>判断是否为某个类的实例： Class 对象的 isInstance()方法</li>
+<li>创建实例：class.newInstance();c.getConstructor(String.class),constructor.newInstance(“23333”);</li>
+<li>获取方法和成员：getDeclaredMethods，getMethods，getDeclaredField，getField</li>
+<li>调用类的方法：method.invoke()</li>
+<li>获取继承关系：getSuperclass，getInterfaces，isAssignableFrom</li>
+</ul>
+<h2 id="6-泛型"><a href="#6-泛型" class="headerlink" title="6. 泛型"></a>6. 泛型</h2><h3 id="1）什么是泛型，好处是什么？"><a href="#1）什么是泛型，好处是什么？" class="headerlink" title="1）什么是泛型，好处是什么？"></a>1）什么是泛型，好处是什么？</h3><p>泛型可以按照c++的模板去理解，最大的作用就是扩展参数类型。泛型是一种编译期特性，编译器会进行类型擦除，最终运行的时候是没有泛型这一说的。很多Java的容器类例如HashSet、ArrayList、HashMap等类就很好地使用了泛型来扩展参数类型。</p>
+<h3 id="2）泛型的用法"><a href="#2）泛型的用法" class="headerlink" title="2）泛型的用法"></a>2）泛型的用法</h3><p>泛型的用法这里不具体列出，泛型的使用中要注意以下几点：</p>
+<ol>
+<li>泛型方法中的泛型可以是方法的参数类型，返回值类型</li>
+<li>一个泛型方法中可以存在多个泛型(k,v,T,?)，内部方法体和普通方法一样</li>
+<li>泛型的类型可以是<strong>有界</strong>的(<String>&#x2F;下届<T extends Number>&#x2F;上届&lt;? super T&gt;)。<ul>
+<li>有界的意思是有类型限定的，比如必须是某种类型或者必须继承或者父类必须是谁，可以多类型限定。</li>
+<li>如果没有注明类型，即<strong>无界</strong>的(&lt;&gt;)，就默认是<Object></li>
+<li>泛型不能是基本类型</li>
+</ul>
+</li>
+<li>泛型是<strong>编译期特性</strong>，具体来说编译期会进行<strong>类型擦除</strong>，也就是把泛型替换成具体类型。<br>具体来说，就是有界的泛型替换成指定类型，无界的泛型替换成Object。</li>
+</ol>
+<h2 id="7-集合"><a href="#7-集合" class="headerlink" title="7. 集合"></a>7. 集合</h2><p>Java的集合可以理解为Java已经帮你实现好的一些高阶数据结构。</p>
+<ul>
+<li>他们都存在于Java标准库java.util中，都支持泛型。</li>
+<li>Collection是除Map外所有其他集合类的根接口，主要的3种集合类是List，Set和Map。</li>
+<li>Java集合使用统一的Iterator遍历。</li>
+<li>实现了接口和实现类相分离。例如，有序表的接口是List，具体的实现类有ArrayList，LinkedList等</li>
+</ul>
+<h3 id="1-List"><a href="#1-List" class="headerlink" title="1)List"></a>1)List</h3><p>List是接口，按索引顺序访问的长度可变的有序表。</p>
+<ul>
+<li>常用的实现是ArrayList和LinkedList，前者是基于数组的，后者是基于链表的。大家根据使用场景效率选择。</li>
+<li>可以直接使用for each遍历List</li>
+<li>List可以和Array相互转换</li>
+</ul>
+<h3 id="2-Set"><a href="#2-Set" class="headerlink" title="2)Set"></a>2)Set</h3><p>Set是接口，用于存储不重复的元素集合。</p>
+<ul>
+<li>常用的实现是HashSet和TreeSet，SortedSet</li>
+<li>遍历SortedSet按照元素的排序顺序遍历，也可以自定义排序算法</li>
+</ul>
+<h3 id="3-Map"><a href="#3-Map" class="headerlink" title="3)Map"></a>3)Map</h3><p>Map也是接口，kv对映射表。</p>
+<ul>
+<li>常见实现是HashMap</li>
+<li>可以通过for each遍历keySet()，也可以通过for each遍历entrySet()，直接获取key-value</li>
+<li>可以直接使用for each遍历List</li>
+</ul>
+<h3 id="4-其他"><a href="#4-其他" class="headerlink" title="4)其他"></a>4)其他</h3><p>其他经常用到的集合还有Queue, Stack等等。</p>
+<h2 id="8-IO"><a href="#8-IO" class="headerlink" title="8. IO"></a>8. IO</h2><p>Java的IO分为同步和异步，分别是标准库java.io和java.nio提供支持。</p>
+<h3 id="1）同步IO"><a href="#1）同步IO" class="headerlink" title="1）同步IO"></a>1）同步IO</h3><p>操作对象分为两类：</p>
+<ul>
+<li>字节流接口：InputStream&#x2F;OutputStream；</li>
+<li>字符流接口：Reader&#x2F;Writer<br> 具体接口及使用这里不再展开。</li>
+</ul>
+<h3 id="2）异步IO"><a href="#2）异步IO" class="headerlink" title="2）异步IO"></a>2）异步IO</h3><h1 id="三，总结"><a href="#三，总结" class="headerlink" title="三，总结"></a>三，总结</h1><p>通过以上部分，我们了解了Java的历史背景和基本用法。这里仅介绍andorid开发相关的主要语法特性，还有一些多线程，网络编程，Maven管理未涉及，这些部分Android开发有自己的一套，会放到Android介绍中展开。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">android</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2023/01/10/%E5%BF%AB%E9%80%9F%E4%BA%86%E8%A7%A3%E8%AF%AD%E8%A8%80%E7%B3%BB%E5%88%97-Java/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-快速学习语言系列-JavaScript" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -652,6 +926,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">计算机基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">android</a>
               </li>
             
             <div class="clearfix"></div>
