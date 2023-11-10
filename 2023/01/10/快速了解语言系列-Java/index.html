@@ -19,7 +19,7 @@
 <meta property="og:image" content="https://gracestar.github.io/img/16996082640610.jpg">
 <meta property="og:image" content="https://gracestar.github.io/img/16996089636600.jpg">
 <meta property="article:published_time" content="2023-01-10T15:10:54.000Z">
-<meta property="article:modified_time" content="2023-11-10T14:13:06.553Z">
+<meta property="article:modified_time" content="2023-11-10T14:15:12.348Z">
 <meta property="article:author" content="Grace">
 <meta property="article:tag" content="android">
 <meta name="twitter:card" content="summary">
@@ -347,18 +347,13 @@
 <li>获取继承关系：getSuperclass，getInterfaces，isAssignableFrom</li>
 </ul>
 <h2 id="6-泛型"><a href="#6-泛型" class="headerlink" title="6. 泛型"></a>6. 泛型</h2><h3 id="1）什么是泛型，好处是什么？"><a href="#1）什么是泛型，好处是什么？" class="headerlink" title="1）什么是泛型，好处是什么？"></a>1）什么是泛型，好处是什么？</h3><p>泛型可以按照c++的模板去理解，最大的作用就是扩展参数类型。泛型是一种编译期特性，编译器会进行类型擦除，最终运行的时候是没有泛型这一说的。很多Java的容器类例如HashSet、ArrayList、HashMap等类就很好地使用了泛型来扩展参数类型。</p>
-<h3 id="2）泛型的用法"><a href="#2）泛型的用法" class="headerlink" title="2）泛型的用法"></a>2）泛型的用法</h3><p>泛型的用法这里不具体列出，泛型的使用中要注意以下几点：</p>
-<ol>
-<li>泛型方法中的泛型可以是方法的参数类型，返回值类型</li>
-<li>一个泛型方法中可以存在多个泛型(k,v,T,?)，内部方法体和普通方法一样</li>
-<li>泛型的类型可以是<strong>有界</strong>的(<String>&#x2F;下届<T extends Number>&#x2F;上届&lt;? super T&gt;)。<ul>
+<h3 id="2）泛型的用法"><a href="#2）泛型的用法" class="headerlink" title="2）泛型的用法"></a>2）泛型的用法</h3><p>泛型的用法这里不具体列出，泛型的使用中要注意以下几点：<br>1, 泛型方法中的泛型可以是方法的参数类型，返回值类型<br>2, 一个泛型方法中可以存在多个泛型(k,v,T,?)，内部方法体和普通方法一样<br>3, 泛型的类型可以是<strong>有界</strong>的(<String>&#x2F;下届<T extends Number>&#x2F;上届&lt;? super T&gt;)。</p>
+<ul>
 <li>有界的意思是有类型限定的，比如必须是某种类型或者必须继承或者父类必须是谁，可以多类型限定。</li>
 <li>如果没有注明类型，即<strong>无界</strong>的(&lt;&gt;)，就默认是<Object></li>
 <li>泛型不能是基本类型</li>
 </ul>
-</li>
-<li>泛型是<strong>编译期特性</strong>，具体来说编译期会进行<strong>类型擦除</strong>，也就是把泛型替换成具体类型。<br>具体来说，就是有界的泛型替换成指定类型，无界的泛型替换成Object。</li>
-</ol>
+<p>4, 泛型是<strong>编译期特性</strong>，具体来说编译期会进行<strong>类型擦除</strong>，也就是把泛型替换成具体类型。<br>   具体来说，就是有界的泛型替换成指定类型，无界的泛型替换成Object。</p>
 <h2 id="7-集合"><a href="#7-集合" class="headerlink" title="7. 集合"></a>7. 集合</h2><p>Java的集合可以理解为Java已经帮你实现好的一些高阶数据结构。</p>
 <ul>
 <li>他们都存在于Java标准库java.util中，都支持泛型。</li>
