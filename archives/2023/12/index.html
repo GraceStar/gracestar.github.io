@@ -6,29 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://gracestar.github.io">
-  <title>字符集和字符编码 | GraceStar</title>
+  <title>Archives: 2023/12 | GraceStar</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="引言：业务开发中，我们会时不时遇到一些奇怪的编码显示问题。如何快速定位问题，这就需要我们对字符集和字符编码有一个系统的了解。">
-<meta property="og:type" content="article">
-<meta property="og:title" content="字符集和字符编码">
-<meta property="og:url" content="https://gracestar.github.io/2022/09/20/%E5%AD%97%E7%AC%A6%E9%9B%86%E5%92%8C%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81/index.html">
+  <meta name="description" content="技术，读书，随笔">
+<meta property="og:type" content="website">
+<meta property="og:title" content="GraceStar">
+<meta property="og:url" content="https://gracestar.github.io/archives/2023/12/index.html">
 <meta property="og:site_name" content="GraceStar">
-<meta property="og:description" content="引言：业务开发中，我们会时不时遇到一些奇怪的编码显示问题。如何快速定位问题，这就需要我们对字符集和字符编码有一个系统的了解。">
+<meta property="og:description" content="技术，读书，随笔">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/33c04c4f2a9140fc9c20dd8535c88efd.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/ee9fb3f19ad74c30b468d64933af8980.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/f8001fbe25e546418e9c5a31191afe1e.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/511dab41d9be45a5979a196d4a0566d7.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/9205b5df098f4c63bebae66db27dddb4.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/a965cc88cbf8439797466ca9f27ff9ef.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/ce01541ebf4d4508bd0931bd557fe12c.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/04e4a8ad4a704eee83691affbc5aced6.png">
-<meta property="article:published_time" content="2022-09-20T15:02:50.000Z">
-<meta property="article:modified_time" content="2023-12-04T12:10:53.947Z">
 <meta property="article:author" content="Grace">
-<meta property="article:tag" content="计算机基础">
+<meta property="article:tag" content="前端，android，ios，unity，hybird app, 软件开发，互联网">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://img-blog.csdnimg.cn/33c04c4f2a9140fc9c20dd8535c88efd.png">
   
     <link rel="alternative" href="/atom.xml" title="GraceStar" type="application/atom+xml">
   
@@ -174,209 +163,60 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-字符集和字符编码" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      字符集和字符编码
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2023" class="archive-year">2023</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2023/12/04/%E8%81%8A%E8%81%8AJNI/" class="archive-article-date">
+  	<time datetime="2023-12-04T11:36:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-12-04</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2023/12/04/%E8%81%8A%E8%81%8AJNI/">聊聊JNI</a>
     </h1>
   
 
-        
-        <a href="/2022/09/20/%E5%AD%97%E7%AC%A6%E9%9B%86%E5%92%8C%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81/" class="archive-article-date">
-  	<time datetime="2022-09-20T15:02:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-09-20</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <meta name="referrer" content="no-referrer"/>
- 
-
-<p> 引言：业务开发中，我们会时不时遇到一些奇怪的编码显示问题。如何快速定位问题，这就需要我们对字符集和字符编码有一个系统的了解。<br> <span id="more"></span></p>
-<h3 id="1，乱码是怎么产生的"><a href="#1，乱码是怎么产生的" class="headerlink" title="1，乱码是怎么产生的"></a>1，乱码是怎么产生的</h3><h3 id="1）什么是字符集（ASCII字符集介绍）"><a href="#1）什么是字符集（ASCII字符集介绍）" class="headerlink" title="1）什么是字符集（ASCII字符集介绍）"></a>1）什么是字符集（ASCII字符集介绍）</h3><p>我们知道计算机里对数据的存储形式是0和1，也就说无论是字母，汉字，数字，emoji等等在计算机里都是一堆0和1。<br>  1963年ANSI(美国国家标准协会)提出了ASCII（美国信息交换标准代码），提出了一个字符到数字的映射标准。字符具体包括0-9，大小写英文字母，常见符号和常见控制符号（换行，回车等），每个字符都有一个对应的数字，我们把这个数字叫做<strong>ASCII字符的码点</strong>。例如：大写字母A的码点是65。</p>
-<p><img src="https://img-blog.csdnimg.cn/33c04c4f2a9140fc9c20dd8535c88efd.png"></p>
-<p>ASCII标准提出的所有的码点及对应关系共同构成了<strong>ASCII字符集</strong>（0~127），其码点共128个数字。</p>
-<h3 id="2）什么是编码（ASCII编码介绍）"><a href="#2）什么是编码（ASCII编码介绍）" class="headerlink" title="2）什么是编码（ASCII编码介绍）"></a>2）什么是编码（ASCII编码介绍）</h3><p>如果把这128个数字直接二进制存储，则长度小于等于7比特，可以用一个字节来表示（首位都是0）。例如字符A，对应ASCII字符集的码点事65，对应二进制是01000001。如果直接将01000001存储到计算机，那A到01000001的映射关系叫做编码。</p>
-<p><img src="https://img-blog.csdnimg.cn/ee9fb3f19ad74c30b468d64933af8980.png"></p>
-<p>编码有非常多种，比如上面直接把ASCII字符集的码点用二进制表示出来的编码方式叫做ASCII编码。</p>
-<h3 id="3）乱码是怎么来的"><a href="#3）乱码是怎么来的" class="headerlink" title="3）乱码是怎么来的"></a>3）乱码是怎么来的</h3><p>毕竟ASCII字符集和编码是美国人搞出来的，他们只适合早期英文互联网环境，对于其他国家的文字完全没法表示。<br>  于是各个国家开始搞自己的字符集和编码，比如大陆地区的GBK, 港澳台的Big5等等。这就带来一个<strong>乱码问题</strong>: 就是你使用的文字编辑器编码格式是A，你编辑了一段文字发给其他国家的小伙伴，他的文字编辑器对应的编码格式是B，他打开看到的就是一堆奇怪的符号。比如著名的乱码“锟斤拷”。</p>
-<h3 id="4）Unicode字符集提出的背景"><a href="#4）Unicode字符集提出的背景" class="headerlink" title="4）Unicode字符集提出的背景"></a>4）Unicode字符集提出的背景</h3><p>所以我们需要一个支持不同语言的通用字符集和编码，1991年<strong>Unicode字符集</strong>应运而生，目前已经成为最主流的字符集，包括了超过14万个字符，甚至2010年之后emoji也被收录在内。Unicode字符集规定了每个字符和unicode码点的对应关系。<br>  但是注意，码点和其真正在计算机的存储内容不是一个东西。编码决定了计算机里的存储形式。</p>
-<p><img src="https://img-blog.csdnimg.cn/f8001fbe25e546418e9c5a31191afe1e.png"></p>
-<p>对应Unicode字符集的编码格式有好几种：utf-32，utf-8, utf-16。后面我们一一介绍：</p>
-<h2 id="2，展开说说utf-32，utf-8-utf-16"><a href="#2，展开说说utf-32，utf-8-utf-16" class="headerlink" title="2，展开说说utf-32，utf-8, utf-16"></a>2，展开说说utf-32，utf-8, utf-16</h2><h3 id="1）utf-32"><a href="#1）utf-32" class="headerlink" title="1）utf-32"></a>1）utf-32</h3><p>简单说也就是把Unicode字符集用4字节，32比特定长表示。32比特涵盖了所有Unicode字符集的码点。 <br><strong>总结：</strong><br>优点：定长，计算机好识别。<br>缺点：浪费存储空间。<br><img src="https://img-blog.csdnimg.cn/511dab41d9be45a5979a196d4a0566d7.png"></p>
-<h3 id="2）utf-8"><a href="#2）utf-8" class="headerlink" title="2）utf-8"></a>2）utf-8</h3><p>针对Unicode字符集的可变长编码格式，兼容ASCII编码（前128用1字节表示）。汉字一般是3个字节表示。utf-8编码后的二进制可能是8, 16, 24, 32位。<br><img src="https://img-blog.csdnimg.cn/9205b5df098f4c63bebae66db27dddb4.png"></p>
-<p>那计算机怎么识别一个字符究竟对应哪几位呢？utf-8规定了多字节存储的格式，也就是在每个字节的开头放置标志位，eg图中的1110,110,10等。</p>
-<p><img src="https://img-blog.csdnimg.cn/a965cc88cbf8439797466ca9f27ff9ef.png"></p>
-<p><strong>总结：</strong><br>utf-8的编码很好的解决了utf-32的内存浪费问题，同时还具备兼容ASCII编码的优势。<br>是目前绝大多数文本编辑器的默认编码（每个文本编辑器的编码可以都是可以修改的），也是网页的默认编码（写在head标签下的meta标签的charset属性里）</p>
-<p><img src="https://img-blog.csdnimg.cn/ce01541ebf4d4508bd0931bd557fe12c.png"></p>
-<h3 id="3）utf-16"><a href="#3）utf-16" class="headerlink" title="3）utf-16"></a>3）utf-16</h3><p>utf-16和utf-8一样，也是Unicode字符集的一种变长编码。也是用标志位的方式来区分位数，<strong>区别在于utf-16只有2字节和4字节之分。</strong><br><img src="https://img-blog.csdnimg.cn/04e4a8ad4a704eee83691affbc5aced6.png"></p>
-<p>这里带来一个新的问题，就是如果计算机遇到了2个字节，他要怎么判断到底对应的是一个完整的字节还是一个字节的一半呢？所以用<code>110110xx xxxxxxxx</code>（<code>0xd800</code> - <code>0xdbff</code>）为高位代理（High Surrogate），<code>110111xx xxxxxxxx</code>（<code>0xdc00</code> - <code>0xdfff</code>） 为低位代理(Low Surrogate)。一个高位代理和一个低位代理可以组成一个代理对（Surrogate Pair）。他们的作用，就是告诉计算机，这是代理，这4个字节连起来代表一个字符（得到对应的码点需换算）。</p>
-<p><strong>所以utf-8和utf-16的区别是什么呢？</strong><br>a, 他们都是一种变长unicode编码方式。<br>b, <strong>使用场景不一样</strong>。比如utf-8对于ASCII兼容的友好型决定了它更适合英文符号比较多的地方，如网络传输。但是中文比较多的地方（如中国地区本地文本编辑器），utf-16更适合，因为其存储空间会更节省（utf-16表示中文是2字节，utf-8是3字节）。<br>c, 补充一点：utf-16和utf-32还存在大小端的问题，所以有utf-16 LE&#x2F;BE的区分。但是utf-8没有这个问题，这也进一步决定了utf-8更适合网络传输。 </p>
-<h2 id="3，总结"><a href="#3，总结" class="headerlink" title="3，总结"></a>3，总结</h2><p>让我们快速总结一下本文的内容：</p>
-<p>1，字符集是字符到一个固定的数字（码点）的映射集合，字符集编码是码点在计算机里的存储方式的对应关系。<br>2，字符集和字符集编码可以是一对多的关系。<br>3，ASCII字符集是美国佬搞出来的，只对英文环境友好；Unicode字符集才是地球村主流字符集。<br>4，Unicode字符集对应utf-32, utf-16, utf-8等编码格式，最主流是utf-8及utf-16。<br>5，utf-8和utf-16都是变长编码，区别在于变长规则不同，因此决定了适用场景不同：网络传输适合utf-8，中文比较多适合utf-16(本地编辑器)。</p>
-<p>你学废了吗？</p>
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">计算机基础</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://gracestar.github.io/2022/09/20/%E5%AD%97%E7%AC%A6%E9%9B%86%E5%92%8C%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2022/09/29/%E4%B8%80%E4%B8%AA%E7%BD%91%E9%A1%B5%E4%BB%8E%E6%8B%BF%E5%88%B0%E5%88%B0%E5%B1%95%E7%A4%BA%E5%87%BA%E6%9D%A5%E7%BB%8F%E5%8E%86%E4%BA%86%E4%BB%80%E4%B9%88/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          一个网页从拿到到展示出来经历了什么
-        
-      </div>
-    </a>
   
   
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%EF%BC%8C%E4%B9%B1%E7%A0%81%E6%98%AF%E6%80%8E%E4%B9%88%E4%BA%A7%E7%94%9F%E7%9A%84"><span class="toc-number">1.</span> <span class="toc-text">1，乱码是怎么产生的</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1%EF%BC%89%E4%BB%80%E4%B9%88%E6%98%AF%E5%AD%97%E7%AC%A6%E9%9B%86%EF%BC%88ASCII%E5%AD%97%E7%AC%A6%E9%9B%86%E4%BB%8B%E7%BB%8D%EF%BC%89"><span class="toc-number">2.</span> <span class="toc-text">1）什么是字符集（ASCII字符集介绍）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%EF%BC%89%E4%BB%80%E4%B9%88%E6%98%AF%E7%BC%96%E7%A0%81%EF%BC%88ASCII%E7%BC%96%E7%A0%81%E4%BB%8B%E7%BB%8D%EF%BC%89"><span class="toc-number">3.</span> <span class="toc-text">2）什么是编码（ASCII编码介绍）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3%EF%BC%89%E4%B9%B1%E7%A0%81%E6%98%AF%E6%80%8E%E4%B9%88%E6%9D%A5%E7%9A%84"><span class="toc-number">4.</span> <span class="toc-text">3）乱码是怎么来的</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4%EF%BC%89Unicode%E5%AD%97%E7%AC%A6%E9%9B%86%E6%8F%90%E5%87%BA%E7%9A%84%E8%83%8C%E6%99%AF"><span class="toc-number">5.</span> <span class="toc-text">4）Unicode字符集提出的背景</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2%EF%BC%8C%E5%B1%95%E5%BC%80%E8%AF%B4%E8%AF%B4utf-32%EF%BC%8Cutf-8-utf-16"><span class="toc-number"></span> <span class="toc-text">2，展开说说utf-32，utf-8, utf-16</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%EF%BC%89utf-32"><span class="toc-number">1.</span> <span class="toc-text">1）utf-32</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%EF%BC%89utf-8"><span class="toc-number">2.</span> <span class="toc-text">2）utf-8</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3%EF%BC%89utf-16"><span class="toc-number">3.</span> <span class="toc-text">3）utf-16</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3%EF%BC%8C%E6%80%BB%E7%BB%93"><span class="toc-number"></span> <span class="toc-text">3，总结</span></a>
-                    </div>
-                </span>
-            </div>
-        </div>
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -399,8 +239,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
-		isArchive: false,
+		isPost: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
