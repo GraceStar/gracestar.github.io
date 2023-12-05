@@ -23,7 +23,7 @@
 <meta property="og:image" content="https://gracestar.github.io/img/17011466497843.jpg">
 <meta property="og:image" content="https://gracestar.github.io/img/17011511678426.jpg">
 <meta property="og:image" content="https://gracestar.github.io/img/17011579928680.jpg">
-<meta property="og:image" content="https://gracestar.github.io/img/17011601613536.jpg">
+<meta property="og:image" content="https://gracestar.github.io/img/17011588709165.jpg">
 <meta property="og:image" content="https://gracestar.github.io/img/17011647433959.jpg">
 <meta property="og:image" content="https://gracestar.github.io/img/17011646183097.jpg">
 <meta property="og:image" content="https://gracestar.github.io/img/17011647851034.jpg">
@@ -41,7 +41,7 @@
 <meta property="og:image" content="https://gracestar.github.io/img/17012276718798.jpg">
 <meta property="og:image" content="https://gracestar.github.io/img/17012398197021.jpg">
 <meta property="article:published_time" content="2023-05-14T17:30:25.000Z">
-<meta property="article:modified_time" content="2023-11-29T07:00:10.201Z">
+<meta property="article:modified_time" content="2023-12-05T04:11:04.875Z">
 <meta property="article:author" content="Grace">
 <meta property="article:tag" content="android">
 <meta name="twitter:card" content="summary">
@@ -241,7 +241,7 @@
 <li>通过Apk builder 将打包后的资源与.dex文件一起生成APK文件。</li>
 </ol>
 <p>以上流程不涉及混淆签名。</p>
-<h1 id="三，进程和进程间通信"><a href="#三，进程和进程间通信" class="headerlink" title="三，进程和进程间通信"></a>三，进程和进程间通信</h1><h2 id="3-1-进程"><a href="#3-1-进程" class="headerlink" title="3.1 进程"></a>3.1 进程</h2><p>  一般来说，每个App运行在一个单独的进程中，也就是一个单独的Andorid虚拟机。应用开发中使用多进程只有一种方法，那就是给四大组件（Activity、Service、Receiver、ContentProvider）在AndroidMenifest中指定android:process属性。除以以外无法指定进程。（极其特殊的情况下，可以通过JNI在native层来fork进程，但是这个方法非常少见）。多进程模式下，不同进程的组件拥有独立的虚拟机，Application和内存空间。</p>
+<h1 id="三，进程和进程间通信"><a href="#三，进程和进程间通信" class="headerlink" title="三，进程和进程间通信"></a>三，进程和进程间通信</h1><h2 id="3-1-进程"><a href="#3-1-进程" class="headerlink" title="3.1 进程"></a>3.1 进程</h2><p>  一般来说，每个App运行在一个单独的进程中，也就是一个单独的Andorid虚拟机。应用开发中使用多进程只有一种方法，那就是给四大组件（Activity、Service、Receiver、ContentProvider）在AndroidManifest中指定android:process属性。除以以外无法指定进程。（极其特殊的情况下，可以通过JNI在native层来fork进程，但是这个方法非常少见）。多进程模式下，不同进程的组件拥有独立的虚拟机，Application和内存空间。</p>
 <p>   两个应用也可以通过ShareUID跑在同一个进程。这要求两个应用有相同的ShareUID并且签名相同，且每个应用是全局进程（进程名不是:开头）。我们可以用过adb shell ps| grep packagename查看进程信息。</p>
 <p>   多进程模式下，我们不得不面对的问题，就是跨进程通信。Android是基于Linux内核的，所以Linux的内存通信方式（共享内存，pipe，Socket等）Android都是支持的。但是Andorid有一套自己独有的进程间通信方式Binder，Binder也是Android四大组件进程间通信的底层技术基础。</p>
 <h2 id="3-2-进程间通信"><a href="#3-2-进程间通信" class="headerlink" title="3.2 进程间通信"></a>3.2 进程间通信</h2><p>  Andorid开发中常见的跨进程应用方式，如Intent拉起非同进程的activity&#x2F;service&#x2F;broadcast receiver，Messenger，AIDL, Socket, 共享文件和SharePreferences。<br>  其中Intent，Messenger, AIDL内部都是基于Binder的，Andorid Framework中各种系统服务进程之间大部分也都是通过Binder通信的。<br>  下面我们先讲讲Binder。</p>
@@ -258,7 +258,11 @@
 <li>接着在内核空间开辟一块内核缓存区，建立内核缓存区和内核中数据接收缓存区之间的映射关系，以及内核中数据接收缓存区和接收进程用户空间地址的映射关系；</li>
 <li>发送方进程通过系统调用将数据 copy 到内核中的内核缓存区，由于内核缓存区和接收进程的用户空间存在内存映射，因此也就相当于把数据发送到了接收进程的用户空间，这样便完成了一次进程间的通信。<br> <img src="/img/17011358572085.jpg"><br>讲完了Binder原理，就该讲<strong>Binder的设计实现</strong>：<br>   Binder 是基于 C&#x2F;S 架构的。由一系列的组件组成，包括 Client、Server、ServiceManager、Binder 驱动。如果那网络模型比喻的话，就好比客户端，服务端，DNS服务器，路由器之间的关系。因为我们代码中具体的Binder都是用名字（类名）来寻找的，ServiceManager的作用就是将字符形式的 Binder 名字转化成 Client 中对该 Binder 的引用，使得 Client 能够通过 Binder 的名字获得对 Binder 实体的引用。ServiceManager和其他进程同样通过Binder交互，只不过它的引用是固定的0。 每个Server通过驱动向 ServiceManager 中注册 Binder。<br>   还有就是进程间传递的只能是基本类型数据，那进程间方法调用是怎么实现的呢？<br>   简单来说，Client进程只不过是持有了Server端的代理；代理对象协助驱动完成了跨进程通信。也就是说Client进程的操作其实是对于影子的操作，影子利用Binder驱动最终让真身完成操作。</li>
 </ol>
-<p>  <img src="/img/17011361950255.jpg"><br>  Binder和实现清楚了之后，我们来思考一个问题，<strong>为什么要单独搞一个Binder出来呢？</strong><br>  主要有两点，<strong>性能和安全</strong>。在移动设备上，广泛地使用跨进程通信肯定对通信机制本身提出了严格的要求；Binder相对出传统的Socket方式，更加高效；另外，传统的进程通信方式对于通信双方的身份并没有做出严格的验证，只有在上层协议上进行架设；比如Socket通信ip地址是客户端手动填入的，都可以进行伪造；而Binder机制从协议本身就支持对通信双方做身份校检（Service Manager的存在），因而大大提升了安全性。这个也是Android权限模型的基础。</p>
+<p>  <img src="/img/17011361950255.jpg"><br>  Binder和实现清楚了之后，我们来思考一个问题，<strong>为什么要单独搞一个Binder出来呢？</strong><br>  主要有两点，<strong>性能和安全</strong>。在移动设备上，广泛地使用跨进程通信肯定对通信机制本身提出了严格的要求。</p>
+<ul>
+<li>Binder（1次系统调用）相对传统的Socket方式（2次系统调用），更加高效；</li>
+<li>另外，传统的进程通信方式对于通信双方的身份并没有做出严格的验证，只有在上层协议上进行架设；比如Socket通信ip地址是客户端手动填入的，都可以进行伪造；而Binder机制从协议本身就支持对通信双方做身份校检（Service Manager的存在），因而大大提升了安全性。这个也是Android权限模型的基础。</li>
+</ul>
 <h3 id="2）Java层Binder的使用-AIDL"><a href="#2）Java层Binder的使用-AIDL" class="headerlink" title="2）Java层Binder的使用(AIDL)"></a>2）Java层Binder的使用(AIDL)</h3><p>  应用层开发中，我们需要自己手写一个自定义场景的跨进程通信的程序，更多是通过AIDL的方式，及基于他的Messager。<br>  <strong>什么是AIDL呢？</strong><br>  通俗来讲，就是Andorid为了我们更好的实现Binder中client和service，帮我们做了一些模型封装，暴露一些实现方法和接口，让我们可以更专注的写业务逻辑。<br>  怎么实现一个AIDL呢?<br>  首先我们要明确，能够跨进程传输的都得是可以序列化的对象（如果是一个类，那么类中的每个成员都必须是可以序列化的）。Andorid中为我们提供了两个序列化接口，分别是Serializable和Parcelable，一个类必须继承自这两个接口，这个类的对象才可以序列化成功。那两者的区别是什么呢？</p>
 <ul>
 <li>前者是Java提供的接口，后者是Android独有的，是官方推荐的序列化方式。</li>
@@ -315,7 +319,7 @@
 </ul>
 <h2 id="5-2-Activity生命周期"><a href="#5-2-Activity生命周期" class="headerlink" title="5.2 Activity生命周期"></a>5.2 Activity生命周期</h2><p>入口Activity进下来进入自己的生命周期：<br>  <img src="/img/17011579928680.jpg"></p>
 <p>注意：两个活动切换的时候，旧活动的onPause执行完，新活动的OnResume才会执行。所以onPause不能执行重量级操作，尽量放到onStop中。</p>
-<p>几种异常情况下的生命周期：<br>1）<strong>资源相关的系统配置发生改变导致Activity被杀死并重新创建</strong><br>   例如，旋转屏幕，这种情况Activity即将被销毁并且有机会重新显示。则系统会调用onSaveInstanceState和onRestoreInstanceState来存储和恢复数据。<br>   时序上的保证是，onSaveInstanceState的时机先于onStop，onRestoreInstanceState后于onStart。<br>   <img src="/img/17011601613536.jpg"></p>
+<p>几种异常情况下的生命周期：<br>1）<strong>资源相关的系统配置发生改变导致Activity被杀死并重新创建</strong><br>   例如，旋转屏幕，这种情况Activity即将被销毁并且有机会重新显示。则系统会调用onSaveInstanceState和onRestoreInstanceState来存储和恢复数据。<br>   时序上的保证是，onSaveInstanceState的时机先于onStop，onRestoreInstanceState后于onStart。<br>   <img src="/img/17011588709165.jpg" alt="17011588709165"></p>
 <p>   具体来说，系统会默认为我们保存当前Activity的视图结构，比如文本框中用户输入的数据、ListView滚动的位置等，这些View相关的状态系统都能够默认为我们恢复。<br>   具体针对某一个特定的View系统能为我们恢复哪些数据，我们可以查看View的源码，和Activity一样，每个View都有onSaveInstanceState和onRestoreInstanceState这两个方法。<br>   关于保存和恢复View层次结构，系统的工作流程是这样的：首先Activity被意外终止时，Activity会调用onSaveInstanceState去保存数据，然后Activity会委托Window去保存数据，接着Window再委托它上面的顶级容器去保存数据。顶层容器是一个ViewGroup，一般来说它很可能是DecorView。最后顶层容器再去一一通知它的子元素来保存数据，这样整个数据保存过程就完成了。数据恢复过程也是基于类似的委托思想。<br>    如果不想重建，则指定Activity的configChanges属性，如此Activity就不会重建了，只会调用onConfigurationChanged回调。</p>
 <p>2）<strong>资源内存不足导致低优先级的Activity被杀死</strong><br>   每个进程都有自己的优先级，当系统内存不足时，系统就会按照上述优先级去杀死对应进程。如果杀死的是Activity所在进程，则会在后续通过onSaveInstanceState和onRestoreInstanceState来存储和恢复数数据。<br>   <strong>常见的进程重要顺序</strong>是：</p>
 <ol>
@@ -348,7 +352,7 @@
 <li>第二种方式的优先级要高于第一种;</li>
 <li>上述两种方式在限定范围上有所不同</li>
 </ul>
-<h1 id="六，四大组件"><a href="#六，四大组件" class="headerlink" title="六，四大组件"></a>六，四大组件</h1><h2 id="6-1-四大组件概述"><a href="#6-1-四大组件概述" class="headerlink" title="6.1 四大组件概述"></a>6.1 四大组件概述</h2><p>  <strong>从注册方式来说</strong>，Android的四大组件中除了BroadcastReceiver以外，其他三种组件都必须在Android-Manifest中注册，对于BroadcastReceiver来说，它既可以在AndroidManifest中注册也可以通过代码来注册。<br>  <strong>从调用方式来说</strong>，Activity、Service和BroadcastReceiver需要借助Intent，而ContentProvider则无须借助Intent。<br>  <strong>从功能来说</strong>，<br>  Activity是一种展示型组件，用于向用户直接地展示一个界面，并且可以接收用户的输入信息从而进行交互。Activity的生命周期和launchMode上面都有介绍。Activity是可以通知的，可以通过调用Activity的finish方法停止运行。<br>  Service是一种计算型组件，用于在后台执行一系列计算任务。由于Service组件工作在后台，因此用户无法直接感知到它的存在。Service组件有两种状态：启动状态和绑定状态。其中绑定状态方便和前台Activity进行通信。Service组件也是可以停止的，停止一个Service组件稍显复杂，需要灵活采用stopService和unBindService这两个方法才能完全停止一个Service组件。<br>  BroadcastReceiver是一种消息型组件，用于在不同的组件乃至不同的应用之间传递消息。BroadcastReceiver也叫广播，广播的注册有两种方式：静态注册和动态注册。广播又分为有序和无序广播。BroadcastReceiver组件一般来说不需要停止，它也没有停止的概念。<br>  ContentProvider是一种数据共享型组件，用于向其他组件乃至其他应用共享数据。另外ContentProvider组件也不需要手动停止。</p>
+<h1 id="六，四大组件"><a href="#六，四大组件" class="headerlink" title="六，四大组件"></a>六，四大组件</h1><h2 id="6-1-四大组件概述"><a href="#6-1-四大组件概述" class="headerlink" title="6.1 四大组件概述"></a>6.1 四大组件概述</h2><p>  <strong>从注册方式来说</strong>，Android的四大组件中除了BroadcastReceiver以外，其他三种组件都必须在Android-Manifest中注册，对于BroadcastReceiver来说，它既可以在AndroidManifest中注册也可以通过代码来注册。<br>  <strong>从调用方式来说</strong>，Activity、Service和BroadcastReceiver需要借助Intent，而ContentProvider则无须借助Intent。<br>  <strong>从功能来说</strong>，<br>  Activity是一种展示型组件，用于向用户直接地展示一个界面，并且可以接收用户的输入信息从而进行交互。Activity的生命周期和launchMode上面都有介绍。Activity是可以停止的，可以通过调用Activity的finish方法停止运行。<br>  Service是一种计算型组件，用于在后台执行一系列计算任务。由于Service组件工作在后台，因此用户无法直接感知到它的存在。Service组件有两种状态：启动状态和绑定状态。其中绑定状态方便和前台Activity进行通信。Service组件也是可以停止的，停止一个Service组件稍显复杂，需要灵活采用stopService和unBindService这两个方法才能完全停止一个Service组件。<br>  BroadcastReceiver是一种消息型组件，用于在不同的组件乃至不同的应用之间传递消息。BroadcastReceiver也叫广播，广播的注册有两种方式：静态注册和动态注册。广播又分为有序和无序广播。BroadcastReceiver组件一般来说不需要停止，它也没有停止的概念。<br>  ContentProvider是一种数据共享型组件，用于向其他组件乃至其他应用共享数据。另外ContentProvider组件也不需要手动停止。</p>
 <h2 id="6-2-四大组件用法详述"><a href="#6-2-四大组件用法详述" class="headerlink" title="6.2 四大组件用法详述"></a>6.2 四大组件用法详述</h2><p>  以上，我们对四大组件的功能有了一定的了解。Activity在前面已经有了详细的介绍，下面我们展开介绍下其他三个组件：<br>**  1）Service**<br>  服务是一个后台运行的组件，执行长时间运行且不需要用户交互的任务。即使应用被销毁也依然可以工作。服务基本上包含两种状态：启动状态和绑定状态。两种状态是可以共存的。<br>  <img src="/img/17011647433959.jpg"></p>
 <p>  两种状态下的生命周期模型是不一样的，左图是当服务通过startService()被创建时的生命周期，右图则显示了当服务通过bindService()被创建时的生命周期：<br>  <img src="/img/17011646183097.jpg"><br>继承自Service基类，需要实现的回调如下：</p>
 <p> <img src="/img/17011647851034.jpg"></p>
@@ -366,7 +370,7 @@
 <li>接下来，你需要创建数据库来保存内容。通常，Android 使用 SQLite 数据库，并在框架中重写 onCreate() 方法来使用 SQLiteOpenHelper 的方法创建或者打开提供者的数据库。当你的应用程序被启动，它的每个内容提供者的 onCreate() 方法将在应用程序主线程中被调用。</li>
 <li>最后，使用&lt;provider…&#x2F;&gt;标签在 AndroidManifest.xml 中注册内容提供者。</li>
 </ol>
-<h2 id="6-3-AMS和PMS"><a href="#6-3-AMS和PMS" class="headerlink" title="6.3 AMS和PMS"></a>6.3 AMS和PMS</h2><p>   这里为什么要提AMS和PMS呢？是因为AMS（ActivityManagerService）主要负责系统中四大组件的启动、切换、调度及应用进程的管理和调度等工作。也就是自大组件的功能实现都在AMS里。<br>   我们提到的AMS, 准确说是一个AMS家族，其内部也是一个跨进程的cs模型。入口调用是ActivityManager，内部真正的实现在ActivityManagerService中。</p>
+<h2 id="6-3-AMS和PMS"><a href="#6-3-AMS和PMS" class="headerlink" title="6.3 AMS和PMS"></a>6.3 AMS和PMS</h2><p>   这里为什么要提AMS和PMS呢？是因为AMS（ActivityManagerService）主要负责系统中四大组件的启动、切换、调度及应用进程的管理和调度等工作。也就是四大组件的功能实现都在AMS里。<br>   我们提到的AMS, 准确说是一个AMS家族，其内部也是一个跨进程的cs模型。入口调用是ActivityManager，内部真正的实现在ActivityManagerService中。</p>
 <p><img src="/img/17011716470418.jpg"><br><strong>那PMS又是什么呢？</strong><br>  上面我们已经知道了AMS的功能，但是AMS是怎么知道应用都有哪些四大组件，他们的属性都是什么呢？这就引出了PMS。<br>  PMS（PackageManagerService）是 Android 提供的包管理系统服务，它用来管理所有的包信息，包括应用安装、卸载、更新以及解析 AndroidManifest.xml。<br>  你是否有考虑过为什么我们手机开启启动时会很慢？这是因为 在手机启动时 PMS 会在这段时间处理 apk 解析，至少有 70% 的启动时间耗费在 PMS 解析上，所以这也是为什么手机开机启动比较慢的原因之一。跟AMS相关的主要是解析功能，可以理解为 PMS 保存了后续提供给 AMS 所需要的数据，它是具有保存应用数据的缓存。<br>  PMS的处理流程简单理解就是手机开机时会去扫描两个目录 &#x2F;data&#x2F;app 和 &#x2F;system&#x2F;app，去解析这两个目录的 apk 文件的 AndroidManifest.xml 生成应用的摘要信息保存为 Java Bean 到内存。AMS和PMS的通信也是通过Binder。</p>
 <p><strong>AMS具体做了什么呢？</strong><br>  这个过程比较长，简单来说就是：</p>
 <ol>
