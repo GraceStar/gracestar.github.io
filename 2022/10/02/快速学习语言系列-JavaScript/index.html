@@ -27,7 +27,7 @@
 <meta property="og:image" content="https://img-blog.csdnimg.cn/307633f0a40a417ea810c0ff5f2e06fc.png">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/d425c48d5afb50d46bbb6feec0f375aa.png">
 <meta property="article:published_time" content="2022-10-02T03:05:23.000Z">
-<meta property="article:modified_time" content="2023-12-01T09:46:07.854Z">
+<meta property="article:modified_time" content="2023-12-20T11:26:38.410Z">
 <meta property="article:author" content="Grace">
 <meta property="article:tag" content="前端">
 <meta name="twitter:card" content="summary">
@@ -476,7 +476,12 @@
 <li>通配符和属性选择器效率最低，避免使用</li>
 </ul>
 <h5 id="d-减少使用昂贵的属性"><a href="#d-减少使用昂贵的属性" class="headerlink" title="d) 减少使用昂贵的属性"></a>d) 减少使用昂贵的属性</h5><p>如<code>box-shadow</code>&#x2F;<code>border-radius等</code></p>
-<h5 id="e-import和link，优选link"><a href="#e-import和link，优选link" class="headerlink" title="e) @import和link，优选link"></a>e) @import和link，优选link</h5><h5 id="f-优选不引起重绘重排的动画，如transform动画"><a href="#f-优选不引起重绘重排的动画，如transform动画" class="headerlink" title="f) 优选不引起重绘重排的动画，如transform动画"></a>f) 优选不引起重绘重排的动画，如transform动画</h5><h3 id="4，优化html"><a href="#4，优化html" class="headerlink" title="4，优化html"></a>4，优化html</h3><p>减少DOM层数</p>
+<h5 id="e-import和link，优选link"><a href="#e-import和link，优选link" class="headerlink" title="e) @import和link，优选link"></a>e) @import和link，优选link</h5><p>众多周知，有两种方法可以在页面中导入样式文件。</p>
+ <link href="a.css" rel="stylesheet">
+ 
+ <style> @import url('a.css'); </style>
+<p>加载页面时，link标签引入的 CSS 被同时加载；@import引入的 CSS 会等到页面全部被下载完再被加载。</p>
+<h5 id="f-优选不引起重绘重排的动画，如transform动画"><a href="#f-优选不引起重绘重排的动画，如transform动画" class="headerlink" title="f) 优选不引起重绘重排的动画，如transform动画"></a>f) 优选不引起重绘重排的动画，如transform动画</h5><h3 id="4，优化html"><a href="#4，优化html" class="headerlink" title="4，优化html"></a>4，优化html</h3><p>减少DOM层数</p>
 <h2 id="五，总结和学习资源"><a href="#五，总结和学习资源" class="headerlink" title="五，总结和学习资源"></a>五，总结和学习资源</h2><h3 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h3><p>1，本文介绍了JS的产生背景和重要语言特性。</p>
 <p>2，介绍了JS Runtime及v8和nodejs的区别。</p>
 <p>3，介绍了JS的重要用法，如数据类型及类型转换，执行栈，this，作用域链，闭包，原型链，继承，内存管理。</p>
@@ -655,7 +660,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2023 Grace
+    		&copy; 2024 Grace
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -738,7 +743,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">客户端</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">前端</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">全栈</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -746,19 +759,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">大前端</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+                <a href="javascript:void(0)" class="js-tag color3">android</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">android</a>
+                <a href="javascript:void(0)" class="js-tag color4">大前端</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
             
             <div class="clearfix"></div>
